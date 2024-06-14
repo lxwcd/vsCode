@@ -1,0 +1,967 @@
+{
+    "editor.fontSize": 20,
+    "workbench.colorTheme": "Default Dark+ Experimental",
+    //vsCode 界面缩放级别，0 表示默认缩放级别，正数放大，负数缩小
+    "window.zoomLevel": 0,
+    "editor.lineNumbers": "relative",
+    //隐藏窗口活动栏
+    "workbench.activityBar.visible": false,
+    //失去焦点后自动保存
+    "files.autoSave": "onFocusChange",
+    "editor.wordWrap": "on",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    //tab 键进行代码补全
+    "editor.tabCompletion": "on",
+    //每次保存的时候自动格式化；
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "vim.showMarksInGutter": true,
+    "vim.smartRelativeLine": true,
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [],
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    // true 表示这些快捷键设置为 vim 的快捷键，处理和 VSCode 冲突的快捷键
+    "vim.handleKeys": {
+        "<C-a>": true,
+        "<C-f>": true
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        //- zc 折叠代码后按 j k 后展会开折叠的代码，可以用 g j 和 g k 则不会展开 ---
+        //--------- 关闭搜索的高亮 -----------
+        {
+            "before": [
+                "<Leader>",
+                "/"
+            ],
+            "commands": [
+                ":nohlsearch"
+            ]
+        },
+        //-- 光标处插入换行符，不切换到插入模式 --
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        },
+        //------- 创建新标签页 --------
+        {
+            "before": [
+                "<Leader>",
+                "t",
+                "t"
+            ],
+            "commands": [
+                ":tabnew"
+            ]
+        },
+        //------- 跳转到第一个标签页 --------
+        {
+            "before": [
+                "<Leader>",
+                "t",
+                "f"
+            ],
+            "commands": [
+                ":tabfirst"
+            ]
+        },
+        //------- 跳转到最后一个标签页 --------
+        {
+            "before": [
+                "<Leader>",
+                "t",
+                "l"
+            ],
+            "commands": [
+                ":tablast"
+            ]
+        },
+        //------- 跳转到下一个标签页 --------
+        {
+            "before": [
+                "<Leader>",
+                "t",
+                "n"
+            ],
+            "commands": [
+                ":tabnext"
+            ]
+        },
+        //------- 跳转到上一个标签页 --------
+        {
+            "before": [
+                "<Leader>",
+                "t",
+                "p"
+            ],
+            "commands": [
+                ":tabprev"
+            ]
+        },
+        //------- 关闭其他全部的标签页 --------
+        {
+            "before": [
+                "<Leader>",
+                "t",
+                "o"
+            ],
+            "commands": [
+                ":tabo"
+            ]
+        },
+        //--------- save current file ------------
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                ":write!"
+            ]
+        },
+        //--------- save all files ------------
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "a"
+            ],
+            "commands": [
+                ":wa!"
+            ]
+        },
+        //-- exit and don't save current file --
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                ":q!"
+            ]
+        },
+        //-- exit and don't save all files --
+        {
+            "before": [
+                "<leader>",
+                "q",
+                "a"
+            ],
+            "commands": [
+                ":qa!"
+            ]
+        },
+        //-- exit and save current file --
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "q"
+            ],
+            "commands": [
+                ":wq!"
+            ]
+        },
+        //-- exit and save all files --
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "q",
+                "a"
+            ],
+            "commands": [
+                ":wqa!"
+            ]
+        },
+        // change word to uppercase
+        {
+            "before": [
+                "<leader>",
+                "U"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "g",
+                "U"
+            ]
+        },
+        // change word to lowercase
+        {
+            "before": [
+                "<leader>",
+                "u"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "g",
+                "u"
+            ]
+        },
+        // wrap words with '
+        {
+            "before": [
+                "<leader>",
+                "'"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                "'",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "'",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with "
+        {
+            "before": [
+                "<leader>",
+                "\""
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                "\"",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "\"",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with (
+        {
+            "before": [
+                "<leader>",
+                "("
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                ")",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "(",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with [
+        {
+            "before": [
+                "<leader>",
+                "["
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                "]",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "[",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with {
+        {
+            "before": [
+                "<leader>",
+                "{"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                "}",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "{",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with <
+        {
+            "before": [
+                "<leader>",
+                "<"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                ">",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "<",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with `
+        {
+            "before": [
+                "<leader>",
+                "`"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                "`",
+                "<Esc>",
+                "h",
+                "b",
+                "i",
+                "`",
+                "<Esc>",
+                "l",
+                "e",
+                "l"
+            ]
+        },
+        // wrap words with **
+        {
+            "before": [
+                "<leader>",
+                "*"
+            ],
+            "after": [
+                "v",
+                "i",
+                "w",
+                "<Esc>",
+                "a",
+                "*",
+                "*",
+                "<Esc>",
+                "h",
+                "h",
+                "b",
+                "i",
+                "*",
+                "*",
+                "<Esc>",
+                "l",
+                "e",
+                "l",
+                "l"
+            ]
+        },
+        // 打开 which key 窗口
+        {
+            "before": [
+                "["
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        },
+    ],
+    "whichkey.bindings": [
+        //open markdown preview to the side
+        {
+            "key": "p",
+            "name": "Open markdown preview side",
+            "type": "command",
+            "command": "markdown-preview-enhanced.openPreviewToTheSide"
+        },
+        //close markdown preview to the side
+        //paste image extension.pasteImage
+        {
+            "key": "i",
+            "name": "Paste image",
+            "type": "command",
+            "command": "extension.pasteImage"
+        },
+        //paste url extension.pasteURL
+        // {
+        //     "key": "u",
+        //     "name": "Paste url",
+        //     "type": "command",
+        //     "command": "extension.pasteURL"
+        // },
+        //相当于 ctrl+shift+p 打开命令菜单
+        {
+            "key": "c",
+            "name": "Commands...",
+            "type": "command",
+            "command": "workbench.action.showCommands"
+        },
+        //open link 
+        {
+            "key": "l",
+            "name": "Open link",
+            "type": "command",
+            "command": "editor.action.openLink"
+        },
+        //buffers/editors
+        {
+            "key": "b",
+            "name": "+buffers/editors...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "b",
+                    "name": "Show all buffers/editors",
+                    "type": "command",
+                    "command": "workbench.action.showAllEditors"
+                },
+                {
+                    "key": "B",
+                    "name": "Show all buffers/editors in active group",
+                    "type": "command",
+                    "command": "workbench.action.showEditorsInActiveGroup"
+                },
+                {
+                    "key": "c",
+                    "name": "Close active editor",
+                    "type": "command",
+                    "command": "workbench.action.closeActiveEditor"
+                },
+                {
+                    "key": "o",
+                    "name": "Close other editors",
+                    "type": "command",
+                    "command": "workbench.action.closeOtherEditors"
+                },
+                //可以跳转到 preview 界面的标签页
+                {
+                    "key": "n",
+                    "name": "Next editor",
+                    "type": "command",
+                    "command": "workbench.action.nextEditor"
+                },
+                {
+                    "key": "p",
+                    "name": "Previous editor",
+                    "type": "command",
+                    "command": "workbench.action.previousEditor"
+                },
+                {
+                    "key": "y",
+                    "name": "Copy path of active file",
+                    "type": "command",
+                    "command": "workbench.action.files.copyPathOfActiveFile"
+                },
+                {
+                    "key": "f",
+                    "name": "Open file/folder",
+                    "type": "command",
+                    "command": "workbench.action.files.openFileFolder"
+                },
+                {
+                    "key": "N",
+                    "name": "New Untitled",
+                    "type": "command",
+                    "command": "workbench.action.files.newUntitledFile"
+                },
+                {
+                    "key": "r",
+                    "name": "Open recent...",
+                    "type": "command",
+                    "command": "workbench.action.openRecent"
+                },
+                {
+                    "key": "R",
+                    "name": "Rename file",
+                    "type": "commands",
+                    "commands": [
+                        "workbench.files.action.showActiveFileInExplorer",
+                        "renameFile"
+                    ]
+                },
+                //固定标签页，避免轻易关闭或打开多个标签时丢失位置
+                {
+                    "key": "t",
+                    "name": "pin current Editor to top ",
+                    "type": "command",
+                    "command": "workbench.action.pinEditor"
+                },
+                {
+                    "key": "T",
+                    "name": "unpin Editor",
+                    "type": "command",
+                    "command": "workbench.action.unpinEditor"
+                },
+                {
+                    "key": "l",
+                    "name": "Change file language",
+                    "type": "command",
+                    "command": "workbench.action.editor.changeLanguageMode"
+                },
+                {
+                    "key": "=",
+                    "name": "Format file",
+                    "type": "command",
+                    "command": "editor.action.formatDocument"
+                },
+                {
+                    "key": "H",
+                    "name": "Move editor into left group",
+                    "type": "command",
+                    "command": "workbench.action.moveEditorToLeftGroup"
+                },
+                {
+                    "key": "J",
+                    "name": "Move editor into below group",
+                    "type": "command",
+                    "command": "workbench.action.moveEditorToBelowGroup"
+                },
+                {
+                    "key": "K",
+                    "name": "Move editor into above group",
+                    "type": "command",
+                    "command": "workbench.action.moveEditorToAboveGroup"
+                },
+                {
+                    "key": "L",
+                    "name": "Move editor into right group",
+                    "type": "command",
+                    "command": "workbench.action.moveEditorToRightGroup"
+                }
+            ],
+        },
+        //navigation
+        {
+            "key": "n",
+            "name": "+navigation",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "e",
+                    "name": "Show explorer",
+                    "type": "command",
+                    "command": "workbench.view.explorer"
+                },
+                {
+                    "key": "s",
+                    "name": "Show search",
+                    "type": "command",
+                    "command": "workbench.view.search"
+                },
+                {
+                    "key": "g",
+                    "name": "Show source control",
+                    "type": "command",
+                    "command": "workbench.view.scm"
+                },
+                {
+                    "key": "r",
+                    "name": "Show remote explorer",
+                    "type": "command",
+                    "command": "workbench.view.remote"
+                },
+                {
+                    "key": "x",
+                    "name": "Show extensions",
+                    "type": "command",
+                    "command": "workbench.view.extensions"
+                },
+                {
+                    "key": "t",
+                    "name": "Show terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.toggleTerminal"
+                }
+            ]
+        },
+        //search
+        {
+            "key": "s",
+            "name": "+search",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "b",
+                    "name": "search in the buffer",
+                    "type": "command",
+                    "command": "actions.find",
+                    "condition": {
+                        "when": "sideBarVisible && explorerViewletVisible"
+                    }
+                },
+                {
+                    "key": "p",
+                    "name": "Search project",
+                    "type": "command",
+                    "command": "workbench.action.findInFiles"
+                },
+                {
+                    "key": "P",
+                    "name": "Search in a project with a selection",
+                    "type": "commands",
+                    "commands": [
+                        "editor.action.addSelectionToNextFindMatch",
+                        "workbench.action.findInFiles"
+                    ]
+                },
+                {
+                    "key": "s",
+                    "name": "Jump to symbol in file",
+                    "type": "command",
+                    "command": "workbench.action.gotoSymbol"
+                },
+                {
+                    "key": "S",
+                    "name": "Jump to symbol in workspace",
+                    "type": "command",
+                    "command": "workbench.action.showAllSymbols"
+                }
+            ]
+        },
+        //window
+        {
+            "key": "w",
+            "name": "+window",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "v",
+                    "name": "Split editor right",
+                    "type": "command",
+                    "command": "workbench.action.splitEditor"
+                },
+                {
+                    "key": "s",
+                    "name": "Split editor below",
+                    "type": "command",
+                    "command": "workbench.action.splitEditorDown"
+                },
+                {
+                    "key": "=",
+                    "name": "Reset editor group sizes",
+                    "type": "command",
+                    "command": "workbench.action.evenEditorWidths"
+                },
+                {
+                    "key": "t",
+                    "name": "Toggle editor group sizes",
+                    "type": "command",
+                    "command": "workbench.action.toggleEditorWidths"
+                },
+                {
+                    "key": "n",
+                    "name": "Open active in new window",
+                    "type": "command",
+                    "command": "workbench.action.files.showOpenedFileInNewWindow"
+                },
+                {
+                    "key": "w",
+                    "name": "Switch window",
+                    "type": "command",
+                    "command": "workbench.action.switchWindow"
+                },
+                {
+                    "key": "h",
+                    "name": "Move editor left",
+                    "type": "command",
+                    "command": "workbench.action.focusPreviousGroup"
+                },
+                {
+                    "key": "j",
+                    "name": "Move editor down",
+                    "type": "command",
+                    "command": "workbench.action.focusBelowGroup"
+                },
+                {
+                    "key": "k",
+                    "name": "Move editor up",
+                    "type": "command",
+                    "command": "workbench.action.focusAboveGroup"
+                },
+                {
+                    "key": "l",
+                    "name": "Move editor right",
+                    "type": "command",
+                    "command": "workbench.action.focusNextGroup"
+                },
+                {
+                    "key": "H",
+                    "name": "Move editor group left",
+                    "type": "command",
+                    "command": "workbench.action.moveActiveEditorGroupLeft"
+                },
+                {
+                    "key": "J",
+                    "name": "Move editor group down",
+                    "type": "command",
+                    "command": "workbench.action.moveActiveEditorGroupDown"
+                },
+                {
+                    "key": "K",
+                    "name": "Move editor group up",
+                    "type": "command",
+                    "command": "workbench.action.moveActiveEditorGroupUp"
+                },
+                {
+                    "key": "L",
+                    "name": "Move editor group right",
+                    "type": "command",
+                    "command": "workbench.action.moveActiveEditorGroupRight"
+                },
+                {
+                    "key": "m",
+                    "name": "Maximize editor group",
+                    "type": "command",
+                    "command": "workbench.action.minimizeOtherEditors"
+                },
+                {
+                    "key": "M",
+                    "name": "Maximize editor group and hide side bar",
+                    "type": "command",
+                    "command": "workbench.action.maximizeEditor"
+                },
+                {
+                    "key": "z",
+                    "name": "Combine all editors",
+                    "type": "command",
+                    "command": "workbench.action.joinAllGroups"
+                },
+                {
+                    "key": "d",
+                    "name": "Close editor group",
+                    "type": "command",
+                    "command": "workbench.action.closeEditorsInGroup"
+                },
+                {
+                    "key": "x",
+                    "name": "Close all editor groups",
+                    "type": "command",
+                    "command": "workbench.action.closeAllGroups"
+                },
+            ]
+        },
+        //toggle
+        {
+            "key": "t",
+            "name": "+toggle",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "u",
+                    "name": "To lower case",
+                    "type": "command",
+                    "command": "editor.action.transformToLowercase"
+                },
+                {
+                    "key": "U",
+                    "name": "To upper case",
+                    "type": "command",
+                    "command": "editor.action.transformToUppercase"
+                },
+                {
+                    "key": "i",
+                    "name": "Organize Imports",
+                    "type": "command",
+                    "command": "editor.action.organizeImports"
+                },
+                //重构
+                {
+                    "key": "R",
+                    "name": "Refactor",
+                    "type": "command",
+                    "command": "editor.action.refactor"
+                },
+                //快速修复
+                {
+                    "key": ".",
+                    "name": "Quick fix",
+                    "type": "command",
+                    "command": "editor.action.quickFix"
+                },
+                //查找全部引用
+                {
+                    "key": "a",
+                    "name": "Find all references",
+                    "type": "command",
+                    "command": "editor.action.referenceSearch.trigger"
+                },
+            ]
+        },
+        //todo tree 
+        {
+            "key": "d",
+            "name": "Open todo tree view",
+            "type": "command",
+            "command": "workbench.view.extension.todo-tree-container"
+        },
+        {
+            "key": "o",
+            "name": "Outline visibility",
+            "type": "command",
+            "command": "outline.toggleVisibility"
+        },
+        {
+            "key": "a",
+            "name": "Outline focus",
+            "type": "command",
+            "command": "outline.focus"
+        },
+        {
+            "key": "w",
+            "name": "New Search Editor",
+            "type": "command",
+            "command": "search.action.openEditor",
+        },
+    ],
+    // todo tree
+    //"editor.minimap.enabled": false,
+    //"window.zoomLevel": -1,
+    //"workbench.startupEditor": "none",
+    // "pasteImage.path": "${currentFileDir}/img",
+    // "pasteImage.forceUnixStyleSeparator": false,
+    // "todo-tree.general.tags": [
+    // "BUG",
+    // "HACK",
+    // "FIXME",
+    // "TODO",
+    // "XXX",
+    // "[ ]",
+    // "[x]",
+    // "NOTE"
+    // ],
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text-and-comment",
+        "foreground": "black",
+        "background": "white",
+        "opacity": 50,
+        "iconColour": "blue",
+        "gutterIcon": true,
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "foreground": "black",
+            "background": "white",
+            "iconColour": "white",
+        },
+        "NOTE": {
+            "icon": "note",
+            "foreground": "white",
+            "background": "gray",
+            "iconColour": "gray",
+        },
+        "COMMENT": {
+            "icon": "note",
+            "foreground": "white",
+            "background": "gray",
+            "iconColour": "gray",
+        },
+        "FIXME": {
+            "foreground": "black",
+            "background": "yellow",
+            "iconColour": "yellow",
+        },
+        "BUG": {
+            "foreground": "black",
+            "background": "red",
+            "iconColour": "red",
+        },
+        "[ ]": {
+            "icon": "check",
+            "foreground": "black",
+            "background": "white",
+            "iconColour": "yellow",
+        },
+        "[x]": {
+            "icon": "check",
+            "foreground": "white",
+            "background": "green",
+            "iconColour": "green",
+        }
+    },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "NOTE",
+        "LABEL",
+        "COMMENT",
+        "[ ]",
+        "[x]",
+        "LABEL"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS).*(\\n\\s*//\\s{2,}.*)*",
+    //不显示右侧的缩略图
+    "editor.minimap.enabled": false,
+    //pasteImage 保存图片路径
+    "pasteImage.path": "${currentFileDir}/img",
+    "markdown-preview-enhanced.previewTheme": "github-light.css",
+    "tabnine.experimentalAutoImports": true,
+}
