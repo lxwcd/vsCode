@@ -1,13 +1,22 @@
 {
-    "editor.fontSize": 20,
+    //------- 界面设置 --------------//
     "workbench.colorTheme": "Default Dark+ Experimental",
     //vsCode 界面缩放级别，0 表示默认缩放级别，正数放大，负数缩小
     "window.zoomLevel": 0,
-    "editor.lineNumbers": "relative",
-    //隐藏窗口活动栏
-    "workbench.activityBar.visible": false,
-    //失去焦点后自动保存
+    //以逐级的方式展示了当前文件的路径
     "files.autoSave": "onFocusChange",
+    "breadcrumbs.enabled": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    //------- editor 设置 --------------//
+    "editor.fontSize": 20,
+    // 不显示右侧的缩略图
+    "editor.minimap.enabled": false,
+    // 它在编辑器的顶部显示当前可见的嵌套作用域的起始行
+    "editor.stickyScroll.enabled": true,
+    // 通过垂直线显示不同的缩进层级
+    "editor.guides.indentation": true,
+    "editor.lineNumbers": "relative",
+    // 失去焦点后自动保存
     "editor.wordWrap": "on",
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
@@ -18,7 +27,7 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "security.workspace.trust.untrustedFiles": "open",
+    //------- vim 配置 --------------//
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
     "vim.operatorPendingModeKeyBindingsNonRecursive": [],
@@ -33,6 +42,7 @@
         "<C-a>": true,
         "<C-f>": true
     },
+    //vim 插入模式快捷键绑定
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -42,8 +52,85 @@
             "after": [
                 "<Esc>"
             ]
+        },
+        //---------- add code for bash ---------------
+        {
+            "before": [
+                "~",
+                "b"
+            ],
+            "after": [
+                "`",
+                "`",
+                "`",
+                "b",
+                "a",
+                "s",
+                "h",
+                "<Enter>",
+                "<Esc>",
+                "O"
+            ]
+        },
+        //---------- add code for cpp ---------------
+        {
+            "before": [
+                "~",
+                "c"
+            ],
+            "after": [
+                "`",
+                "`",
+                "`",
+                "c",
+                "p",
+                "p",
+                "<Enter>",
+                "<Esc>",
+                "O"
+            ]
+        },
+        //---------- add code for python ---------------
+        {
+            "before": [
+                "~",
+                "p"
+            ],
+            "after": [
+                "`",
+                "`",
+                "`",
+                "p",
+                "y",
+                "t",
+                "h",
+                "o",
+                "n",
+                "<Enter>",
+                "<Esc>",
+                "O"
+            ]
+        },
+        //---------- add code for sql ---------------
+        {
+            "before": [
+                "~",
+                "s"
+            ],
+            "after": [
+                "`",
+                "`",
+                "`",
+                "s",
+                "q",
+                "l",
+                "<Enter>",
+                "<Esc>",
+                "O"
+            ]
         }
     ],
+    //vim normal 模式快捷键绑定
     "vim.normalModeKeyBindingsNonRecursive": [
         //- zc 折叠代码后按 j k 后展会开折叠的代码，可以用 g j 和 g k 则不会展开 ---
         //--------- 关闭搜索的高亮 -----------
@@ -431,7 +518,28 @@
             ]
         },
     ],
+    //------- whichkey 快捷键绑定 --------------//
     "whichkey.bindings": [
+        //toggle explorer
+        {
+            "key": "e",
+            "name": "Show tree/explorer view",
+            "type": "conditional",
+            "bindings": [
+                {
+                    "key": "",
+                    "name": "default",
+                    "type": "command",
+                    "command": "workbench.view.explorer"
+                },
+                {
+                    "key": "when:sideBarVisible && explorerViewletVisible",
+                    "name": "Hide explorer",
+                    "type": "command",
+                    "command": "workbench.action.toggleSidebarVisibility"
+                }
+            ],
+        },
         //open markdown preview to the side
         {
             "key": "p",
@@ -439,7 +547,6 @@
             "type": "command",
             "command": "markdown-preview-enhanced.openPreviewToTheSide"
         },
-        //close markdown preview to the side
         //paste image extension.pasteImage
         {
             "key": "i",
@@ -859,6 +966,7 @@
             "type": "command",
             "command": "workbench.view.extension.todo-tree-container"
         },
+        //outline
         {
             "key": "o",
             "name": "Outline visibility",
@@ -879,21 +987,6 @@
         },
     ],
     // todo tree
-    //"editor.minimap.enabled": false,
-    //"window.zoomLevel": -1,
-    //"workbench.startupEditor": "none",
-    // "pasteImage.path": "${currentFileDir}/img",
-    // "pasteImage.forceUnixStyleSeparator": false,
-    // "todo-tree.general.tags": [
-    // "BUG",
-    // "HACK",
-    // "FIXME",
-    // "TODO",
-    // "XXX",
-    // "[ ]",
-    // "[x]",
-    // "NOTE"
-    // ],
     "todo-tree.highlights.defaultHighlight": {
         "icon": "alert",
         "type": "text-and-comment",
@@ -901,48 +994,48 @@
         "background": "white",
         "opacity": 50,
         "iconColour": "blue",
-        "gutterIcon": true,
+        "gutterIcon": true
     },
     "todo-tree.highlights.customHighlight": {
         "TODO": {
             "icon": "check",
             "foreground": "black",
             "background": "white",
-            "iconColour": "white",
+            "iconColour": "white"
         },
         "NOTE": {
             "icon": "note",
             "foreground": "white",
             "background": "gray",
-            "iconColour": "gray",
+            "iconColour": "gray"
         },
         "COMMENT": {
             "icon": "note",
             "foreground": "white",
             "background": "gray",
-            "iconColour": "gray",
+            "iconColour": "gray"
         },
         "FIXME": {
             "foreground": "black",
             "background": "yellow",
-            "iconColour": "yellow",
+            "iconColour": "yellow"
         },
         "BUG": {
             "foreground": "black",
             "background": "red",
-            "iconColour": "red",
+            "iconColour": "red"
         },
         "[ ]": {
             "icon": "check",
             "foreground": "black",
             "background": "white",
-            "iconColour": "yellow",
+            "iconColour": "yellow"
         },
         "[x]": {
             "icon": "check",
             "foreground": "white",
             "background": "green",
-            "iconColour": "green",
+            "iconColour": "green"
         }
     },
     "todo-tree.general.tags": [
@@ -958,10 +1051,19 @@
         "LABEL"
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS).*(\\n\\s*//\\s{2,}.*)*",
-    //不显示右侧的缩略图
-    "editor.minimap.enabled": false,
-    //pasteImage 保存图片路径
+    //---------- pasteImage ----------
+    //默认保存路径
     "pasteImage.path": "${currentFileDir}/img",
+    //VSCode 粘贴图片时总是使用 Unix 风格的路径分隔符（即正斜杠/），无论使用的是哪种操作系统
+    "pasteImage.forceUnixStyleSeparator": true,
+    //指定图片名前缀
+    // "pasteImage.namePrefix": "${currentFileNameWithoutExt}-",
+    //指定图片文件命名中的日期格式
+    // "pasteImage.dateFormat": "yyyyMMddHHmmss",
+    //指定图片格式
+    // "pasteImage.format": "png",
+    //在粘贴图片时显示文件路径确认输入框
+    // "pasteImage.showFilePathConfirmInputBox": true
     "markdown-preview-enhanced.previewTheme": "github-light.css",
     "tabnine.experimentalAutoImports": true,
 }
