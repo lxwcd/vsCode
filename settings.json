@@ -25,7 +25,7 @@
     //每次保存的时候自动格式化；
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
     },
     //------- vim 配置 --------------//
     "vim.showMarksInGutter": true,
@@ -68,6 +68,9 @@
                 "s",
                 "h",
                 "<Enter>",
+                "`",
+                "`",
+                "`",
                 "<Esc>",
                 "O"
             ]
@@ -86,6 +89,31 @@
                 "p",
                 "p",
                 "<Enter>",
+                "`",
+                "`",
+                "`",
+                "<Esc>",
+                "O"
+            ]
+        },
+        //---------- add code for json ---------------
+        {
+            "before": [
+                "~",
+                "j"
+            ],
+            "after": [
+                "`",
+                "`",
+                "`",
+                "j",
+                "s",
+                "o",
+                "n",
+                "<Enter>",
+                "`",
+                "`",
+                "`",
                 "<Esc>",
                 "O"
             ]
@@ -107,6 +135,9 @@
                 "o",
                 "n",
                 "<Enter>",
+                "`",
+                "`",
+                "`",
                 "<Esc>",
                 "O"
             ]
@@ -125,6 +156,9 @@
                 "q",
                 "l",
                 "<Enter>",
+                "`",
+                "`",
+                "`",
                 "<Esc>",
                 "O"
             ]
@@ -555,12 +589,12 @@
             "command": "extension.pasteImage"
         },
         //paste url extension.pasteURL
-        // {
-        //     "key": "u",
-        //     "name": "Paste url",
-        //     "type": "command",
-        //     "command": "extension.pasteURL"
-        // },
+        {
+            "key": "u",
+            "name": "Paste url",
+            "type": "command",
+            "command": "pasteURL.PasteURL"
+        },
         //相当于 ctrl+shift+p 打开命令菜单
         {
             "key": "c",
