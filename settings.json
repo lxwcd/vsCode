@@ -556,6 +556,13 @@
     ],
     //------- whichkey 快捷键绑定 --------------//
     "whichkey.bindings": [
+        //相当于 ctrl+shift+p 打开命令菜单
+        {
+            "key": "c",
+            "name": "Commands...",
+            "type": "command",
+            "command": "workbench.action.showCommands"
+        },
         //toggle explorer
         {
             "key": "e",
@@ -576,12 +583,39 @@
                 }
             ],
         },
+        //outline
+        {
+            "key": "o",
+            "name": "Outline visibility",
+            "type": "command",
+            "command": "outline.toggleVisibility"
+        },
+        {
+            "key": "a",
+            "name": "Outline focus",
+            "type": "command",
+            "command": "outline.focus"
+        },
+        //todo tree 
+        {
+            "key": "d",
+            "name": "Open todo tree view",
+            "type": "command",
+            "command": "workbench.view.extension.todo-tree-container"
+        },
         //open markdown preview to the side
         {
             "key": "p",
             "name": "Open markdown preview side",
             "type": "command",
             "command": "markdown-preview-enhanced.openPreviewToTheSide"
+        },
+        //open link 
+        {
+            "key": "l",
+            "name": "Open link",
+            "type": "command",
+            "command": "editor.action.openLink"
         },
         //paste image extension.pasteImage
         {
@@ -596,20 +630,6 @@
             "name": "Paste url",
             "type": "command",
             "command": "pasteURL.PasteURL"
-        },
-        //相当于 ctrl+shift+p 打开命令菜单
-        {
-            "key": "c",
-            "name": "Commands...",
-            "type": "command",
-            "command": "workbench.action.showCommands"
-        },
-        //open link 
-        {
-            "key": "l",
-            "name": "Open link",
-            "type": "command",
-            "command": "editor.action.openLink"
         },
         //buffers/editors
         {
@@ -954,18 +974,18 @@
             "name": "+toggle",
             "type": "bindings",
             "bindings": [
-                {
-                    "key": "u",
-                    "name": "To lower case",
-                    "type": "command",
-                    "command": "editor.action.transformToLowercase"
-                },
-                {
-                    "key": "U",
-                    "name": "To upper case",
-                    "type": "command",
-                    "command": "editor.action.transformToUppercase"
-                },
+                // {
+                //     "key": "u",
+                //     "name": "To lower case",
+                //     "type": "command",
+                //     "command": "editor.action.transformToLowercase"
+                // },
+                // {
+                //     "key": "U",
+                //     "name": "To upper case",
+                //     "type": "command",
+                //     "command": "editor.action.transformToUppercase"
+                // },
                 {
                     "key": "i",
                     "name": "Organize Imports",
@@ -994,32 +1014,6 @@
                     "command": "editor.action.referenceSearch.trigger"
                 },
             ]
-        },
-        //todo tree 
-        {
-            "key": "d",
-            "name": "Open todo tree view",
-            "type": "command",
-            "command": "workbench.view.extension.todo-tree-container"
-        },
-        //outline
-        {
-            "key": "o",
-            "name": "Outline visibility",
-            "type": "command",
-            "command": "outline.toggleVisibility"
-        },
-        {
-            "key": "a",
-            "name": "Outline focus",
-            "type": "command",
-            "command": "outline.focus"
-        },
-        {
-            "key": "w",
-            "name": "New Search Editor",
-            "type": "command",
-            "command": "search.action.openEditor",
         },
     ],
     // todo tree
