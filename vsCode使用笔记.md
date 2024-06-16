@@ -234,6 +234,8 @@ keybindings.json 中的设置：
 ### `[` + c
 which key 自定义快捷键。
 
+## 打开 which key 命令面板 `[`
+
 ## 打开 explorer 
 ### ctrl + shift + e
 默认快捷键。
@@ -270,3 +272,74 @@ which key 自定义快捷键。
 
 ### 删除文件 d
 
+## which key 快捷键
+### toggle explorer : e
+
+### open preview : p
+
+### paste image : i
+
+### paste url : u
+
+### show command : c
+
+### open link : l
+
+### open todo tree : d
+
+### open outline : o
+
+### outline focus : a
+
+### 缓冲区文件操作 二级命令 : b
+
+#### show all buffers : b
+类似 vim 中 `:ls`，显示全部打开的文件。
+
+#### show all buffers in active group : B
+
+#### close active buffer : c
+相当于 vim 中 ctrl + w + c。
+
+#### close other editors : o
+相当于 vim 中 ctrl + w + o。
+
+### 导航 二级命令 : n
+
+### 搜索 二级命令 : s
+
+### 窗口操作 二级命令 : w
+
+### toggle 操作
+
+## vim 快捷键
+> [vsCode Vim 中快捷键支持](https://github.com/VSCodeVim/Vim/blob/master/ROADMAP.md)
+
+### leader 键 : <space>
+
+### 大小写转换
+#### 原生 vim 快捷键
+- gu 
+- gU
+
+#### 自定义快捷键
+- <leader> + u
+- <leader> + U
+
+### wrap a word with symbol
+- <leader> + "
+- <leader> + '
+- <leader> + `
+- <leader> + (
+- <leader> + [
+- <leader> + {
+- <leader> + <
+
+### 添加代码片段
+- ~ + b 添加 bash 脚本
+- ~ + c 添加 c++ 代码
+- ~ + j 添加 json 脚本
+- ~ + p 添加 python 脚本
+- ~ + s 添加 sql 脚本
+
+# 配置 c++ 环境
