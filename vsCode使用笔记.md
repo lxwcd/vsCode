@@ -209,3 +209,64 @@ code --help | less
 |     比较两个文件      | code -d filename1 filename2 |
 
 # 快捷键
+**keybindings.json** 用于自定义键盘快捷键。用户可以覆盖默认的快捷键或添加新的快捷键绑定。
+或者按 ctrl + shift + p 打开命令面板，输入 open keyboard shortcuts 可以选择直接编辑或查看快捷键，或者打开快捷键绑定配置文件 keybindings.json。
+
+## 打开终端 ctrl \
+自定义快捷键，不是默认的。
+![](img/2024-06-16-12-50-13.png)
+
+keybindings.json 中的设置：
+```json
+[
+	{ // toggle terminal
+		"key": "ctrl+oem_5",
+		"command": "workbench.action.terminal.toggleTerminal",
+		"when": "terminal.active"
+	}
+]
+```
+
+## 打开命令面板 
+### ctrl + shift + p
+默认快捷键。
+
+### `[` + c
+which key 自定义快捷键。
+
+## 打开 explorer 
+### ctrl + shift + e
+默认快捷键。
+
+## 切换到 explorer
+在 explorer 打开状态，按 ctrl + h。
+
+### `[` + e
+可以打开或关闭 explorer，which key 自定义快捷键。
+
+## 返回编辑区
+### ctrl + 1
+默认快捷键。
+
+### ctrl + shift + c
+自定义快捷键
+
+## 打开大纲栏
+### `[` + o
+自定义 which key 快捷键。
+
+## 切换到大纲栏
+### `[` + a
+自定义 which key 快捷键。
+
+## 大纲栏中操作
+### 上下移动 k|j
+
+### 展开/折叠目录 o
+
+### 新建文件 a
+
+### 新建文件夹 shift + a
+
+### 删除文件 d
+

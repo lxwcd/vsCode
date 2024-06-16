@@ -7,6 +7,7 @@
     "files.autoSave": "onFocusChange",
     "breadcrumbs.enabled": true,
     "security.workspace.trust.untrustedFiles": "open",
+    "search.followSymlinks": false,
     //------- editor 设置 --------------//
     "editor.fontSize": 20,
     // 不显示右侧的缩略图
@@ -40,7 +41,8 @@
     // true 表示这些快捷键设置为 vim 的快捷键，处理和 VSCode 冲突的快捷键
     "vim.handleKeys": {
         "<C-a>": true,
-        "<C-f>": true
+        "<C-f>": true,
+        "<C-r>": true
     },
     //vim 插入模式快捷键绑定
     "vim.insertModeKeyBindings": [
@@ -557,7 +559,7 @@
         //toggle explorer
         {
             "key": "e",
-            "name": "Show tree/explorer view",
+            "name": "Show/Hide explorer view",
             "type": "conditional",
             "bindings": [
                 {
