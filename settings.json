@@ -1,13 +1,13 @@
 {
     //------- 界面设置 --------------//
-    "workbench.colorTheme": "Default Dark+ Experimental",
+    "workbench.colorTheme": "Visual Studio Dark - C++",
     //vsCode 界面缩放级别，0 表示默认缩放级别，正数放大，负数缩小
     "window.zoomLevel": 0,
     //以逐级的方式展示了当前文件的路径
-    "files.autoSave": "onFocusChange",
     "breadcrumbs.enabled": true,
     "security.workspace.trust.untrustedFiles": "open",
     "search.followSymlinks": false,
+    "files.autoSave": "onFocusChange",
     //------- editor 设置 --------------//
     "editor.fontSize": 20,
     // 不显示右侧的缩略图
@@ -25,9 +25,14 @@
     "editor.tabCompletion": "on",
     //每次保存的时候自动格式化；
     "editor.formatOnSave": true,
+    //文件格式化的范围
+    // "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
+    //-------- 文件编码 -------------//
+    "files.encoding": "utf8",
     //------- vim 配置 --------------//
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
@@ -136,6 +141,28 @@
                 "h",
                 "o",
                 "n",
+                "<Enter>",
+                "`",
+                "`",
+                "`",
+                "<Esc>",
+                "O"
+            ]
+        },
+        //---------- add code for yaml ---------------
+        {
+            "before": [
+                "~",
+                "y"
+            ],
+            "after": [
+                "`",
+                "`",
+                "`",
+                "y",
+                "a",
+                "m",
+                "l",
                 "<Enter>",
                 "`",
                 "`",
@@ -1096,4 +1123,26 @@
     // "pasteImage.showFilePathConfirmInputBox": true
     "markdown-preview-enhanced.previewTheme": "github-light.css",
     "tabnine.experimentalAutoImports": true,
+    //--------- C/C++ 文件设置 -----------
+    // "[cpp]": { // 单独设置 cpp 文件编码
+    //     "files.encoding": "utf8"
+    // },
+    //cpp 文件默认编译器路径
+    "C_Cpp.default.compilerPath": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+    //使用了 clang-format 但没有 .clang-format 文件，使用 Visual Studio 的格式化风格
+    //Visual Studio, LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU, none, or use {key: value, ...}
+    "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+    //clang-format.exe 文件路径
+    "C_Cpp.clang_format_path": "C:\\Users\\lx\\.vscode\\extensions\\ms-vscode.cpptools-1.20.5-win32-x64\\LLVM\\bin\\clang-format.exe",
+    "clang-format.executable": "C:\\Users\\lx\\.vscode\\extensions\\ms-vscode.cpptools-1.20.5-win32-x64\\LLVM\\bin\\clang-format.exe",
+    //clang-format 格式定义，可以使用一些标准风格，如前面介绍的 Visual Studio, LLVM, Google, Chromium, Mozilla 等
+    //或者自定义文件，这里指定一个文件，但如果在某个 c++ 工程中又指定的 .clang-format 文件，则工程目录中的文件设置会覆盖
+    //这个文件的设置，如果找不到 .clange-format 文件，则使用默认的格式设置
+    //如果 "C_Cpp.clang_format_style": "file", 则表示从当前目录或父目录中查找 .clang-format 文件
+    "C_Cpp.clang_format_style": "C:\\Users\\lx\\.vscode\\extensions\\xaver.clang-format-1.9.0\\.clang-format",
+    //指定格式化时所用的工具，default, clangFormat, or vcFormat
+    //default 则默认用 clang-format 格式化
+    // "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseEngine": "default"
 }
