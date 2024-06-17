@@ -30,11 +30,11 @@ Visual Studio Code (VSCode) 提供了灵活的配置系统，允许用户根据�
   
 5. **extensions.json** - 推荐的插件列表，新加入工作区的成员可以看到推荐安装的插件，便于团队成员保持一致的开发环境设置。  
    - **位置**：位于`.vscode/extensions.json`。  
+   - 在 settings.sync 备份的 local 目录内有 extensions.json 文件，如果备份时选择了插件列表。
   
 这些配置文件让VSCode变得非常灵活，用户可以通过修改这些文件来实现高度个性化的编辑器配置。  
 可以通过在VSCode中按下`Ctrl + ,`快捷键，或是在命令面板(`Ctrl + Shift + P`)中查找并打开`打开设置(JSON)`来访问`settings.json`文件。  
 对于其他配置文件，如`keybindings.json`、`launch.json`等，你可以在`.vscode`文件夹中找到它们（如果文件夹或文件不存在，可能需要手动创建）。  
-  
   
 ## settings.json  
 > 参考配置：[mirror-vscode](https://github.com/Imymirror/mirror-vscode)  
@@ -122,12 +122,11 @@ Visual Studio Code (VSCode) 提供了灵活的配置系统，允许用户根据�
 }  
 ```  
   
-## 配置插件  
-### Vim  
+## Vim  
   
-### Which Key  
+## Which Key  
   
-### multi-command  
+## multi-command  
 目前未使用该插件的功能。  
   
 multi-command是一个VsCode插件，它允许用户将多个命令绑定到单个快捷键上。这意味着您可以通过一次按键执行一系列的操作，从而提高工作效率。这特别有用于那些需要反复执行多步操作的场景。  
@@ -162,8 +161,7 @@ multi-command是一个VsCode插件，它允许用户将多个命令绑定到单�
 ### Markdown Preview Enhanced  
 更专注于Markdown文档的预览效果，提供了更丰富的预览功能，比如支持渲染更多的Markdown语法、代码高亮、生成幻灯片、图表渲染等。此外，它还支持导出Markdown文件为不同格式的文档。  
   
-## pdf 插件  
-### vscode-pdf  
+## vscode-pdf  
 查看 pdf 文档。  
   
 ## 代码辅助插件  
@@ -196,8 +194,7 @@ GitLens是一款广受欢迎的Visual Studio Code插件，它通过超强大的G
   
 ## UML 插件  
 ### PlantUML  
-  
-  
+
 # CLI 命令  
 > [The Visual Studio Code command-line interface](https://code.visualstudio.com/docs/editor/command-line)  
   
@@ -206,11 +203,11 @@ GitLens是一款广受欢迎的Visual Studio Code插件，它通过超强大的G
 code --help | less  
 ```  
   
-|         功能          |            命令             |  
-| :-------------------: | :-------------------------: |  
-|   当前窗口打开文件    |      code -r filename       |  
-| 新窗口打开文件/文件夹 |   code -n filename/folder   |  
-|     比较两个文件      | code -d filename1 filename2 |  
+|         功能          |            命令             |
+| :-------------------: | :-------------------------: |
+|   当前窗口打开文件    |      code -r filename       |
+| 新窗口打开文件/文件夹 |   code -n filename/folder   |
+|     比较两个文件      | code -d filename1 filename2 |
   
 # 快捷键  
 **keybindings.json** 用于自定义键盘快捷键。用户可以覆盖默认的快捷键或添加新的快捷键绑定。  
@@ -234,6 +231,10 @@ keybindings.json 中的设置：
 ## 打开命令面板   
 ### ctrl + shift + p  
 默认快捷键。  
+
+## 打开 settings UI 界面
+### ctrl + ,  
+默认快捷键。
   
 ### `[` + c  
 which key 自定义快捷键。  
@@ -377,10 +378,8 @@ ctrl + shift + p 打开命令面板，输入 settings sync，根据官网的介�
    - **.clang-format配置文件**：虽然一个workspace可以包含多个项目，但通常只有一个`.clang-format`文件来定义整个workspace中所有C++代码的格式化风格。如果不同项目需要不同的编码风格，你可能需要为每个项目单独配置并存放于各自的根目录下。  
    - **项目数量**：一个workspace可以包含多个项目。你可以通过添加项目的根文件夹到workspace来实现这一点。这使得管理和工作在相关联但独立的多个项目上变得更加方便。  
   
-  
-如果你想要同时处理多个不同的项目或工作区，你可以选择用以下方法：  
+如果想要同时处理多个不同的项目或工作区，你可以选择用以下方法：  
 - **在新窗口中打开另一个工作区**：通过`File` > `New Window`打开一个新的VSCode窗口，然后通过`File` > `Open Folder...`打开另一个项目的文件夹，或者通过`File` > `Open Workspace...`打开另一个已保存的工作区配置。  
-    
 - **使用多根工作区功能**：VSCode支持在单一的工作区中包含多个项目文件夹，这称为**多根工作区**。通过将多个文件夹添加到当前的工作区，你可以在同一个VSCode窗口内管理和访问多个项目。  
   
 # 变量  
