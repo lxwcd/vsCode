@@ -691,6 +691,9 @@ IndentCaseLabels: true
 Language:        Cpp  
 # C++的独特规则  
 Standard:        C++11  
+
+...
+
 ```  
   
 ###### BreakBeforeBraces 花括号包裹方式  
