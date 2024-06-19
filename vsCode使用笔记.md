@@ -502,8 +502,7 @@ gcc --version
 g++ --version  
 gdb --version  
 ```  
-如果 vsCode 终端不能显示，则推出 vsCode 后重启再查看。  
-  
+如果 vsCode 终端不能显示，则退出 vsCode 后重启再查看。  
   
 ## 安装 C/C++ 插件  
 ctrl + shift + x 插件中安装 C/C++ 插件。  
@@ -542,30 +541,29 @@ VSCode 支持多种语言的 IntelliSense，包括但不限于JavaScript、TypeS
   
 ### 自定义 IntelliSense  
   
-  
 ## 配置 c++ 项目环境  
 ctrl + shift + p 打开命令面板，输入 "C/C++: Edit Configurations"，进入 UI 界面设置 C++ 项目环境，设置完后会在 .vscode 文件夹下生成 c_cpp_properties.json 文件，如：  
 ```json  
-{  
-    "configurations": [  
-        {  
-            "name": "Win32",  
-            "includePath": [  
-                "${workspaceFolder}/**"  
-            ],  
-            "defines": [  
-                "_DEBUG",  
-                "UNICODE",  
-                "_UNICODE"  
-            ],  
-            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",  
-            "cStandard": "c17",  
-            "cppStandard": "gnu++17",  
-            "intelliSenseMode": "windows-gcc-x64"  
-        }  
-    ],  
-    "version": 4  
-}  
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
 ```  
 `c_cpp_properties.json`文件位于VSCode的`.vscode`文件夹中，是Visual Studio Code C/C++扩展使用的一个重要配置文件。该文件主要用于配置C++项目的环境，包括编译器路径、包含路径、定义、语言标准等。  
   
@@ -653,15 +651,17 @@ ctrl + shift + p 打开命令面板，输入 Open User Settings 进入 settings 
 如果你选择使用 `clangFormat`，可以通过 `.clang-format` 文件来配置具体的格式化规则。以下是一个简单的 `.clang-format` 配置示例：  
   
 ##### .clang-format 文件  
-`.clang-format`是一种基于YAML语法格式的文件。  
-  
-.clang-format文件配置的规则仅影响Clang-Format支持的语言（主要是C、C++和Objective-C）。Clang-Format不会处理其他语言的文件（如Python、JSON、Shell等），因此.clang-format文件中的规则不会影响这些文件的格式化。  
-  
+> [ClangFormat — Clang 19.0.0git documentation](https://clang.llvm.org/docs/ClangFormat.html) 
+> [Clang-Format Style Options — Clang 19.0.0git documentation](https://clang.llvm.org/docs/ClangFormatStyleOptions.html#) 
+
+- 可以通过 [clang-format configurator](https://zed0.co.uk/clang-format-configurator/) 在线编辑和查看样式，最后生成 .clang-format 文件。  
+- 可以自己编写 .clang-format 文件，参考 [clang-format](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)。  
+- .clang-format 文件放在项目根目录下。  
+
 ```yaml  
----  
+--- 
 # 通用规则（适用于C/C++）  
-# BasedOnStyle:    Google  
-BasedOnStyle: LLVM  
+BasedOnStyle: Google  
 # 空格代替 tab  
 UseTab:          Never  
 TabWidth:        4  
@@ -671,7 +671,8 @@ ColumnLimit:     120
 # 花括号包裹方式  
 BreakBeforeBraces: Allman  
 # 指针和引用的位置  
-PointerAlignment: Left  # 或者 Right, Middle  
+DerivePointerAlignment: false
+PointerAlignment: Right  # 或者 Left, Middle  
 # 控制是否对齐连续的赋值语句。  
 AlignConsecutiveAssignments: true  
 # 控制是否对齐尾随注释。  
@@ -681,21 +682,15 @@ AllowShortFunctionsOnASingleLine: All  # 或者 None, InlineOnly, Empty
 # 控制尾随注释前的空格数。  
 SpacesBeforeTrailingComments: 2  
 # 控制关键字和左括号之间的空格。  
-SpaceBeforeParens: Never # ControlStatements, Always, Never  
+SpaceBeforeParens: ControlStatements # Never, Always
 # 控制 `case` 标签的缩进。  
 IndentCaseLabels: true  
-  
+
 ---  
+
 Language:        Cpp  
 # C++的独特规则  
-Standard:        Cpp11  
-  
-  
----  
-Language:        C  
-# C语言的独特规则  
-Standard:        C11  
----  
+Standard:        C++11  
 ```  
   
 ###### BreakBeforeBraces 花括号包裹方式  
@@ -858,8 +853,6 @@ SonarLint 和 SonarQube 是两个由 SonarSource 公司开发的工具，它们�
 - 简单  
 - 没有 IWYU 专业，细致  
 - 需要编译工程，非静态代码检查  
-  
-  
   
 ## 运行单个 cpp 文件  
 > [Get Started with C++ and MinGW-w64 in Visual Studio Code](https://code.visualstudio.com/docs/cpp/config-mingw#_run-helloworldcpp)   
